@@ -40,3 +40,25 @@ router.post("/login", (req, res) => {
             res.status(500).json({ errorMessage: "Error during login process." });
         });
 })
+
+router.get("/logout", (req, res) => {
+    if (req.session) {
+      req.session.destroy(error => {
+        if (error) {
+          res
+            .status(500)
+            .json({
+              message:
+                "Problem while logging out.",
+            });
+        } else {
+          res.status(200).json({ message: "Logged out successfully." });
+        }
+      });
+    } else {
+      res.status(200).json({ message: "Not logged in." });
+    }
+  });
+
+
+module.exports = router;
