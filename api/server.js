@@ -4,7 +4,7 @@ const cors = require("cors");
 const session = require("express-session");
 
 
-const authRouter = require("../auth/router.js");
+const authRouter = require("../auth/auth-router.js");
 const usersRouter = require("../users/users-router.js");
 const restricted = require("../auth/restricted-middleware.js");
 
